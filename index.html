@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="OmniVR: the first joint audio-video generative restoration model for degraded historical films.">
+    <meta name="description" content="OmniVR and OmniVR-Flash: joint audio-video restoration for archival footage, with multistep and one-step inference, Turbo VAE, and OmniVRBench.">
     <meta name="keywords" content="OmniVR, Video Restoration, Audio Restoration, Historical Films, Old Film, Joint Audio-Video, Generative Restoration, Diffusion Transformer">
-    <title>OmniVR: Joint Video-Audio Conditional Generation for Restoring Degraded Historical Films</title>
+    <title>OmniVR: Joint Audio-Video Conditional Generation for Archival Footage Restoration</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -361,6 +361,20 @@
         html.dark .gallery-card { box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
         html.dark .gallery-card:hover { box-shadow: 0 14px 34px rgba(0,0,0,0.4); }
     </style>
+    <meta name="citation_title" content="OmniVR: Joint Audio-Video Conditional Generation for Archival Footage Restoration">
+    <meta name="citation_author" content="Xin Lu">
+    <meta name="citation_author" content="Zihao Fan">
+    <meta name="citation_author" content="Jie Huang">
+    <meta name="citation_author" content="Mingchen Zhong">
+    <meta name="citation_author" content="Hexin Zhang">
+    <meta name="citation_author" content="Xueyang Fu">
+    <meta name="citation_author" content="Zheng-Jun Zha">
+    <meta name="citation_publication_date" content="2026/08/04">
+    <meta name="citation_pdf_url" content="https://xin1u.github.io/OminiVR_PAGE/assets/OmniVR.pdf">
+    <link rel="canonical" href="https://xin1u.github.io/OminiVR_PAGE/">
+    <meta property="og:title" content="OmniVR: Joint Audio-Video Conditional Generation for Archival Footage Restoration">
+    <meta property="og:description" content="Joint audio-video restoration with OmniVR and one-step OmniVR-Flash.">
+    <meta property="og:url" content="https://xin1u.github.io/OminiVR_PAGE/">
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
@@ -371,6 +385,7 @@
         <div class="flex items-center gap-6">
             <a href="#abstract" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Abstract</a>
             <a href="#method" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Method</a>
+            <a href="#inference" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Inference</a>
             <a href="#compare" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Stream It</a>
             <a href="#gallery" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Gallery</a>
             <a href="#bibtex" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">BibTeX</a>
@@ -415,8 +430,8 @@
             <span class="gradient-text" style="-webkit-text-fill-color: transparent;">OmniVR</span>
         </h1>
         <p class="text-xl md:text-2xl font-semibold text-gray-100 tracking-tight leading-snug max-w-3xl mx-auto">
-            Joint <span class="text-pink-300">Video-Audio</span> Conditional Generation<br class="hidden md:block">
-            for Restoring <span class="text-purple-300">Degraded Historical Films</span>
+            Joint <span class="text-pink-300">Audio-Video</span> Conditional Generation<br class="hidden md:block">
+            for <span class="text-purple-300">Archival Footage Restoration</span>
         </p>
 
         <!-- Authors -->
@@ -426,6 +441,7 @@
                 <span>Zihao Fan<sup class="text-pink-300 text-xs">&dagger;</sup>,</span>
                 <span>Jie Huang<sup class="text-pink-300 text-xs">&Dagger;</sup>,</span>
                 <span>Mingchen Zhong,</span>
+                <span>Hexin Zhang,</span>
                 <span>Xueyang Fu<sup class="text-pink-300 text-xs">&#9993;</sup>,</span>
                 <span>Zheng-Jun Zha</span>
             </div>
@@ -441,8 +457,8 @@
 
         <!-- Buttons: Paper (arXiv) · Code (GitHub) · Model (Hugging Face) -->
         <div class="flex flex-wrap justify-center gap-3 mt-9">
-            <a href="https://arxiv.org/abs/2608.04224" class="hero-btn inline-flex items-center gap-2 text-white px-6 py-3 rounded-full font-bold text-sm hover:shadow-xl hover:scale-105 transition-all" style="background: linear-gradient(135deg, var(--ov-l), var(--ov-r)); box-shadow: 0 8px 22px rgba(109,40,217,0.4);">
-                <i class="fas fa-file-pdf"></i> Paper
+            <a href="assets/OmniVR.pdf" class="hero-btn inline-flex items-center gap-2 text-white px-6 py-3 rounded-full font-bold text-sm hover:shadow-xl hover:scale-105 transition-all" style="background: linear-gradient(135deg, var(--ov-l), var(--ov-r)); box-shadow: 0 8px 22px rgba(109,40,217,0.4);">
+                <i class="fas fa-file-pdf"></i> Latest Paper
             </a>
             <a href="https://github.com/xin1u/OminiVR" class="hero-btn inline-flex items-center gap-2 bg-white text-gray-900 border-2 border-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 hover:shadow-xl transition-all" style="box-shadow: 0 8px 22px rgba(0,0,0,0.28);">
                 <i class="fab fa-github"></i> Code
@@ -451,6 +467,8 @@
                 <span class="text-base leading-none">&#129303;</span> Model
             </a>
         </div>
+
+        <p class="mt-5 text-sm text-gray-300">Manuscript updated 30 September 2026 · <a href="https://arxiv.org/abs/2608.04224" class="underline hover:text-white">arXiv:2608.04224</a> · <a href="#inference" class="underline hover:text-white">Flash &amp; multistep inference code</a></p>
 
         <p class="mt-10 text-xs text-gray-400 tracking-wide uppercase">
             <i class="fas fa-film mr-1"></i> Background: a historical clip restored by OmniVR
@@ -468,7 +486,7 @@
 <section class="pt-14 pb-8 px-4">
     <div class="max-w-3xl mx-auto text-center fade-in-up">
         <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
-            <span class="font-semibold text-gray-900">OmniVR</span> is the first <span class="font-semibold text-gray-900">joint audio-video</span> generative restoration model for historical films &mdash; recovering visual structure, temporal motion, and acoustic detail under one coordinated objective, so picture and sound are healed <em>together</em>.
+            <span class="font-semibold text-gray-900">OmniVR</span> restores archival picture and sound jointly, without user-provided text. The framework connects paired audiovisual data, condition annealing, <span class="font-semibold text-gray-900">OmniVR-Flash</span> one-step inference, and evaluation of visual quality, audio quality, temporal consistency, and synchrony.
         </p>
     </div>
 </section>
@@ -496,8 +514,8 @@
             </div>
             <div class="text-center p-4">
                 <div class="text-3xl font-bold gradient-text" data-count-to="200" data-suffix="">0</div>
-                <div class="text-sm font-medium text-gray-700 mt-1">Real Historical Clips</div>
-                <div class="text-xs text-gray-400">Benchmark set</div>
+                <div class="text-sm font-medium text-gray-700 mt-1">Evaluation Clips</div>
+                <div class="text-xs text-gray-400">71 controlled + 129 real</div>
             </div>
         </div>
     </div>
@@ -510,7 +528,7 @@
     <div class="max-w-4xl mx-auto fade-in-up">
         <h2 class="text-3xl font-bold text-center mb-8">Abstract</h2>
         <p class="text-gray-600 leading-relaxed text-justify">
-            Historical films suffer from co-occurring visual and audio degradations&mdash;blur, noise, flicker, hiss, clipping, and dropout&mdash;yet existing methods restore each modality independently, leaving quality gaps and cross-modal inconsistency. We present <strong class="text-gray-900">OmniVR</strong>, the first joint audio-video generative restoration model. Built upon a <strong class="text-gray-900">22B-parameter audio-video generation backbone</strong>, OmniVR formulates restoration as conditional generation within a unified multimodal DiT: the low-quality video and audio are encoded as latent conditions, combined with a fixed restoration prompt, and jointly denoised to recover visual structure, temporal motion, and acoustic detail under one coordinated objective. Three key designs enable this adaptation: (1) a joint audio-video degradation pipeline that simulates real old-film characteristics from Internet-collected data; (2) an architecture-preserving text-to-audio-video (T2AV) to audio-video-to-audio-video (AV2AV) transition with prompt annealing that maximally retains the generative prior; and (3) first-frame image-to-video (I2V) anchoring with loss reweighting and waveform supervision for long-video extrapolation and audio fidelity. We also propose <strong class="text-gray-900">OmniVRBench</strong>, the first benchmark that evaluates audio-video restoration across visual quality, audio quality, temporal consistency, and audio-visual synchrony on 200 real historical clips. OmniVR surpasses all prior methods on all six visual metrics, achieves the best audio quality, and produces natural colorization&mdash;the first method to jointly address all three aspects.
+            Archival footage often suffers from coupled visual and acoustic degradations, yet most restoration systems process the two modalities separately. To address this problem, we present OmniVR, the first systematic framework for joint audio-video restoration, covering data construction, model adaptation, efficient inference, and evaluation. We construct a high-quality audio-video corpus with detailed captions and use a joint degradation pipeline to produce aligned clean and degraded pairs. Using these pairs, we adapt a pretrained text-to-audio-video model (T2AV) by introducing degraded audio-video conditions (TAV2AV), then progressively replace sample captions with a fixed restoration prompt while retaining caption/null rehearsal. The resulting AV2AV model requires no user-provided text. Under a compatible residual-learning model, we prove that this condition-annealing schedule reduces gradient variance and expected restoration risk relative to direct fixed-prompt adaptation at the same training budget. For efficient deployment, OmniVR-Flash combines reduced-resolution video conditioning, MeanFlow-based one-step distillation, and Turbo VAE, achieving approximately 38 fps at 1K and 18 fps at 2K on a single B200 GPU. We further introduce OmniVRBench to evaluate four complementary dimensions: visual quality, audio quality, temporal consistency, and audio-visual synchrony. OmniVR achieves state-of-the-art results on public benchmarks and OmniVRBench. Data, code, and model weights will be released.
         </p>
     </div>
 </section>
@@ -520,21 +538,59 @@
      ============================================ -->
 <section id="method" class="py-16 px-4 bg-gray-50">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-4 fade-in-up">Key Contributions</h2>
-        <p class="text-gray-500 text-center mb-10 max-w-2xl mx-auto fade-in-up">Three designs that turn a text-to-audio-video generator into a joint old-film restorer while preserving its generative prior.</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in-up">
+        <h2 class="text-3xl font-bold text-center mb-4 fade-in-up">OmniVR &amp; OmniVR-Flash</h2>
+        <p class="text-gray-500 text-center mb-8 max-w-3xl mx-auto fade-in-up">A systematic framework for joint audio-video restoration: data construction, staged adaptation, efficient inference, and four-axis evaluation.</p>
+        <figure class="bg-white rounded-2xl p-3 md:p-6 mb-10 border border-gray-200 fade-in-up">
+            <a href="assets/architecture.pdf" target="_blank" rel="noopener" aria-label="Open the vector framework figure">
+                <img src="assets/architecture.png" alt="OmniVR framework: conditional SFT, AV MeanFlow distillation, Turbo VAE, and one-step joint audio-video restoration" width="3072" height="1024" loading="lazy" class="w-full h-auto rounded-lg">
+            </a>
+            <figcaption class="text-sm text-gray-600 leading-relaxed mt-4">OmniVR and OmniVR-Flash framework. (a) Conditional SFT adapts a joint audiovisual DiT with degraded inputs and caption annealing to a fixed prompt. (b) AV MeanFlow enables one-step prediction. (c) Turbo VAE accelerates video encoding and decoding. (d) OmniVR-Flash downsamples LQ video before condition encoding and DiT injection, reducing conditioning cost while preserving high-resolution outputs. The last restored frame anchors the next window. <a href="assets/architecture.pdf" class="underline">Vector PDF</a> · Figure 4 in the <a href="assets/OmniVR.pdf" class="underline">latest manuscript</a>.</figcaption>
+        </figure>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-in-up">
             <div class="feature-card bg-white" style="border-left-color: #DB2777;">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Joint AV Degradation Pipeline</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Simulates real old-film characteristics&mdash;blur, noise, flicker, hiss, clipping, dropout&mdash;from Internet-collected data, producing paired low-quality audio-video for training.</p>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Paired audiovisual data</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">100K high-quality synchronized shots, detailed audiovisual captions, and a joint degradation pipeline provide aligned clean and degraded training pairs.</p>
             </div>
             <div class="feature-card bg-white" style="border-left-color: #A21CAF;">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Prior-Preserving T2AV &rarr; AV2AV</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">An architecture-preserving transition with prompt annealing recasts text-to-audio-video generation as audio-video-to-audio-video restoration, maximally retaining the generative prior.</p>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">T2AV → TAV2AV → AV2AV</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Gated condition annealing transfers control from sample captions to degraded audiovisual inputs while retaining caption/null rehearsal. Inference uses a fixed restoration prompt internally.</p>
             </div>
             <div class="feature-card bg-white" style="border-left-color: #6D28D9;">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">I2V Anchoring &amp; Waveform Supervision</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">First-frame image-to-video anchoring with loss reweighting and waveform supervision enables long-video extrapolation and high audio fidelity.</p>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">OmniVR-Flash</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">The paper combines reduced-resolution video conditioning, MeanFlow one-step distillation, and Turbo VAE, reporting approximately 38 fps at 1K and 18 fps at 2K on a single B200.</p>
             </div>
+            <div class="feature-card bg-white" style="border-left-color: #2563EB;">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">OmniVRBench</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">200 clips across controlled and real archival tracks evaluate visual quality, audio quality, temporal consistency, and audiovisual synchrony.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="inference" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto fade-in-up">
+        <h2 class="text-3xl font-bold text-center mb-4">Inference code</h2>
+        <p class="text-gray-500 text-center mb-8 max-w-3xl mx-auto">The source release includes both inference paths, their model loaders, and the shared LTX runtime. Install from one repository with Python 3.12 and a CUDA GPU.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <article class="feature-card bg-gray-50" style="border-left-color: #DB2777;">
+                <h3 class="text-xl font-bold mb-3">OmniVR-Flash</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">Single-step joint audio-video inference with a Turbo VAE encoder and decoder. Accepts a clip or a directory and exports restored picture and sound.</p>
+                <p class="font-mono text-sm mb-4">python infer.py --help</p>
+                <a href="https://github.com/xin1u/OminiVR#omnivr-flash" class="font-semibold text-pink-600 underline">Flash setup and checkpoint requirements</a>
+            </article>
+            <article class="feature-card bg-gray-50" style="border-left-color: #6D28D9;">
+                <h3 class="text-xl font-bold mb-3">OmniVR multistep</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">Configurable Euler sampling with CFG/STG, full LTX VAE decoding, and per-video distribution across multiple GPUs. Public multistep checkpoints remain available.</p>
+                <p class="font-mono text-sm mb-4">python infer_multistep.py --help</p>
+                <a href="https://github.com/xin1u/OminiVR#omnivr-multistep" class="font-semibold text-purple-600 underline">Multistep setup and inference</a>
+            </article>
+        </div>
+        <p class="text-sm text-gray-500 leading-relaxed mt-6">Flash code is included; compatible Flash LoRA, Turbo VAE, and prompt-cache artifacts are separate from the currently public multistep weights. The supplied commands process clip windows; see the <a href="https://github.com/xin1u/OminiVR#release-scope" class="underline">release scope</a> for the optimized paper configuration.</p>
+        <div class="flex flex-wrap justify-center gap-5 mt-6 text-sm font-semibold">
+            <a href="https://github.com/xin1u/OminiVR" class="underline">GitHub source</a>
+            <a href="https://huggingface.co/xin1u/OmniVR" class="underline">Hugging Face weights and code</a>
+            <a href="https://github.com/xin1u/OminiVR/blob/main/docs/inference.md" class="underline">Full inference guide</a>
         </div>
     </div>
 </section>
@@ -628,10 +684,14 @@
         <div class="bibtex-block bg-gray-900 text-gray-300 rounded-xl p-6 font-mono text-sm leading-relaxed overflow-x-auto">
             <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
 <pre class="bibtex-code">@article{lu2026omnivr,
-  title={OmniVR: Joint Video-Audio Conditional Generation for Restoring Degraded Historical Films},
-  author={Lu, Xin and Fan, Zihao and Zhong, Mingchen and Huang, Jie and Fu, Xueyang and Zha, Zheng-Jun},
+  title={OmniVR: Joint Audio-Video Conditional Generation for Archival Footage Restoration},
+  author={Lu, Xin and Fan, Zihao and Huang, Jie and Zhong, Mingchen and Zhang, Hexin and Fu, Xueyang and Zha, Zheng-Jun},
   journal={arXiv preprint arXiv:2608.04224},
-  year={2026}
+  year={2026},
+  eprint={2608.04224},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2608.04224}
 }</pre>
         </div>
     </div>
