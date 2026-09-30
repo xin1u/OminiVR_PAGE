@@ -9,7 +9,7 @@ University of Science and Technology of China
 [Live project page](https://xin1u.github.io/OminiVR_PAGE/) · [Latest manuscript, 30 September 2026](https://xin1u.github.io/OminiVR_PAGE/assets/OmniVR.pdf) · [arXiv](https://arxiv.org/abs/2608.04224) · [GitHub](https://github.com/xin1u/OminiVR) · [Hugging Face](https://huggingface.co/xin1u/OmniVR)
 
 This repository hosts the project page, the supplied latest manuscript, and
-the exact vector framework figure used in that manuscript. The page includes
+the exact vector framework and data pipeline figures used in that manuscript. The page includes
 updated author information, the abstract, a framework overview, links to both
 Flash and multistep inference, and the existing audiovisual comparisons.
 
@@ -29,6 +29,8 @@ availability separately.
 ## Files
 
 - `assets/OmniVR.pdf`: latest supplied manuscript, unchanged.
+- `assets/data-pipeline.pdf`: original Figure 3 from manuscript page 5.
+- `assets/data-pipeline.png`: high-resolution data pipeline image.
 - `assets/architecture.pdf`: exact source of Figure 4 on page 6.
 - `assets/architecture.png`: web rendering of that vector figure.
 - `real-films-demo/`: existing input/output videos and spectrograms.

@@ -384,6 +384,7 @@
         <a href="#" class="font-bold text-lg text-white nav-brand">OmniVR</a>
         <div class="flex items-center gap-6">
             <a href="#abstract" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Abstract</a>
+            <a href="#data-pipeline" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden lg:inline nav-link">Data</a>
             <a href="#method" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Method</a>
             <a href="#inference" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Inference</a>
             <a href="#compare" class="text-sm font-medium text-gray-200 hover:text-pink-300 transition-colors hidden md:inline nav-link">Stream It</a>
@@ -530,6 +531,20 @@
         <p class="text-gray-600 leading-relaxed text-justify">
             Archival footage often suffers from coupled visual and acoustic degradations, yet most restoration systems process the two modalities separately. To address this problem, we present OmniVR, the first systematic framework for joint audio-video restoration, covering data construction, model adaptation, efficient inference, and evaluation. We construct a high-quality audio-video corpus with detailed captions and use a joint degradation pipeline to produce aligned clean and degraded pairs. Using these pairs, we adapt a pretrained text-to-audio-video model (T2AV) by introducing degraded audio-video conditions (TAV2AV), then progressively replace sample captions with a fixed restoration prompt while retaining caption/null rehearsal. The resulting AV2AV model requires no user-provided text. Under a compatible residual-learning model, we prove that this condition-annealing schedule reduces gradient variance and expected restoration risk relative to direct fixed-prompt adaptation at the same training budget. For efficient deployment, OmniVR-Flash combines reduced-resolution video conditioning, MeanFlow-based one-step distillation, and Turbo VAE, achieving approximately 38 fps at 1K and 18 fps at 2K on a single B200 GPU. We further introduce OmniVRBench to evaluate four complementary dimensions: visual quality, audio quality, temporal consistency, and audio-visual synchrony. OmniVR achieves state-of-the-art results on public benchmarks and OmniVRBench. Data, code, and model weights will be released.
         </p>
+    </div>
+</section>
+
+<section id="data-pipeline" class="py-16 px-4 scroll-mt-20">
+    <div class="max-w-6xl mx-auto fade-in-up">
+        <h2 class="text-3xl font-bold text-center mb-8">Audiovisual data pipeline</h2>
+        <figure class="bg-white rounded-2xl p-3 md:p-6 border border-gray-200">
+            <a href="assets/data-pipeline.pdf" target="_blank" rel="noopener" aria-label="Open the vector data pipeline figure">
+                <img src="assets/data-pipeline.png" alt="OmniVR data pipeline: collect and screen shots; align, caption, and degrade audiovisual data; construct paired supervision" width="3072" height="1232" loading="lazy" class="w-full h-auto rounded-lg">
+            </a>
+            <figcaption class="text-sm text-gray-600 leading-relaxed mt-4">Shot-aligned audiovisual data pipeline. Synchronized 3–20 s shots pass the listed quality/safety operators; Gemini combines shot context, frames, and audio evidence into one structured caption. Caption JSON, severity metadata, and clean/LQ pairs remain aligned for TAV2AV training and high-resolution refiner supervision. The boxing example uses archived frames and measured waveforms/spectra; the degraded video is additionally grayscaled for visualization.
+                <span class="block mt-2"><a href="assets/data-pipeline.pdf" class="underline">Vector PDF</a> · <a href="assets/data-pipeline.png" class="underline">High-resolution PNG</a> · Figure 3 in the <a href="assets/OmniVR.pdf#page=5" class="underline">latest manuscript</a>.</span>
+            </figcaption>
+        </figure>
     </div>
 </section>
 
