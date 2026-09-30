@@ -1,4 +1,4 @@
-# OmniVR project page
+# 🎞️ OmniVR project page
 
 **OmniVR: Joint Audio-Video Conditional Generation for Archival Footage Restoration**
 
@@ -6,7 +6,11 @@ Xin Lu, Zihao Fan, Jie Huang, Mingchen Zhong, Hexin Zhang, Xueyang Fu, Zheng-Jun
 
 University of Science and Technology of China
 
-[Live project page](https://xin1u.github.io/OminiVR_PAGE/) · [Latest manuscript, 30 September 2026](https://xin1u.github.io/OminiVR_PAGE/assets/OmniVR.pdf) · [arXiv](https://arxiv.org/abs/2608.04224) · [GitHub](https://github.com/xin1u/OminiVR) · [Hugging Face](https://huggingface.co/xin1u/OmniVR)
+[![Latest manuscript · 30 Sep 2026](assets/badges/paper.svg)](https://xin1u.github.io/OminiVR_PAGE/assets/OmniVR.pdf)
+[![arXiv:2608.04224](assets/badges/arxiv.svg)](https://arxiv.org/abs/2608.04224)
+[![Project page](assets/badges/project.svg)](https://xin1u.github.io/OminiVR_PAGE/)
+[![GitHub source code](assets/badges/github.svg)](https://github.com/xin1u/OminiVR)
+[![Hugging Face models and code](assets/badges/huggingface.svg)](https://huggingface.co/xin1u/OmniVR)
 
 This repository hosts the project page, the supplied latest manuscript, and
 the exact vector framework and data pipeline figures used in that manuscript. The page includes
