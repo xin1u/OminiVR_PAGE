@@ -20,8 +20,9 @@ python -m http.server 8000
 ```
 
 `index.html` uses Tailwind CSS and vanilla JavaScript with no build step.
-The inference implementations are in the linked GitHub and Hugging Face
-repositories. The paper reports an optimized Flash configuration; the
+The inference implementations are in the linked GitHub repository. Hugging
+Face hosts the public model files and benchmark assets. The paper reports
+an optimized Flash configuration; the
 inference release documents its clip-window interface and current checkpoint
 availability separately.
 
